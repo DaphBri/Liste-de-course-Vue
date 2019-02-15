@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="utf-8">
+  <title>Titre</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="css/style.min.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+</head>
+
+<body>
+
+  <div class="col" id="app">
+    <h2>
+      Liste de courses
+    </h2>
+    <div id="container">
+      <div v-if="!i.isHidden" class="alert ingredient" :class="{'alert-success': i.isSelected, 'alert-info': !i.isSelected}" @click="toggle(i)" v-for="i in list">
+        <i class="fa fa-square"  :class="{'fa-check-square': i.isSelected}" ></i> {{i.name}} 
+        <!-- quand une classe contien "-" il faut metre des '' autoure -->
+        <button @click="i.isHidden = true" class="bouton">
+          <img src="https://png.pngtree.com/svg/20161008/the_trash_40525.png" alt="">
+      </button> 
+      </div>
+      
+    </div>
+    <form class="form-inline" v-on:submit.prevent="addNewI">
+      <div class="form-group">
+        <div class="input-group">
+          <input type="text" class="form-control" id="new-item-field" placeholder="Produit" v-model="i.name">
+        </div>
+      </div>
+      <button type="submit" class="btn">Ajouter</button>
+    </form>
+  <!-- {{ingredientsSelected}} -->
+  </div>
+  <!-- ---------------------------------------------- -->
+
+
+  
+  
+
+  <script src=" https://cdnjs.cloudflare.com/ajax/libs/vue/2.5.22/vue.min.js"></script>
+  <script src="js/vue.js"></script>
+  <script src="js/main.js"></script>
+</body>
+
+</html>
